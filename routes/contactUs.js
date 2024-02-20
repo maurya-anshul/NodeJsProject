@@ -1,13 +1,25 @@
+const express = require("express");
+const path = require("path");
+const rootDir = require("../util/path");
 
-const express=require('express');
-const path=require('path');
+const router = express.Router();
 
-const router=express.Router();
-
-router.get('/contactUs',(req,res,next)=>{
-    res.sendFile(path.join(__dirname,'..','view','contactUs.html'))
-})
-router.post('/success',(req,res,next)=>{
-    res.send('<h2>Form Successfully Filled</h2>')
-})
-module.exports=router;
+router.get("/contactUs", (req, res, next) => {
+  res.render('contactUs',{
+    pageTitle: 'Contact Us',
+    path:'/contactUs',
+    formCSS: true,
+    productCSS: true,
+    activeShop: true
+  })
+});
+router.post("/success", (req, res, next) => {
+  res.render('success',{
+    pageTitle: 'Form Filled',
+    path:'/success',
+    formCSS: true,
+    productCSS: true,
+    activeShop: true
+  })
+});
+module.exports = router;
