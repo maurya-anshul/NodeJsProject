@@ -1,25 +1,10 @@
 const express = require("express");
 const path = require("path");
-const rootDir = require("../util/path");
 
+const productsController=require('../controllers/product')
 const router = express.Router();
 
-router.get("/contactUs", (req, res, next) => {
-  res.render('contactUs',{
-    pageTitle: 'Contact Us',
-    path:'/contactUs',
-    formCSS: true,
-    productCSS: true,
-    activeShop: true
-  })
-});
-router.post("/success", (req, res, next) => {
-  res.render('success',{
-    pageTitle: 'Form Filled',
-    path:'/success',
-    formCSS: true,
-    productCSS: true,
-    activeShop: true
-  })
-});
+router.get("/contactUs", productsController.getContactUs );
+
+router.post("/success",productsController.postSuccess);
 module.exports = router;
