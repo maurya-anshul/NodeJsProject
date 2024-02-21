@@ -22,16 +22,20 @@ exports.getAddProduct= (req, res, next) => {
 
 
   exports.getProduct=(req, res, next) => {
-    const products = Product.fetchAll();
-    res.render('shop',{
-      prods:products,
-      pageTitle: 'Shop',
-      path:'/',
-      hasproduct: products.length>0,
-      formCSS: true,
-      productCSS: true,
-      activeShop: true
-    })
+   const callBackFnBody= (products)=>{
+      res.render('shop',{
+        prods:products,
+        pageTitle: 'Shop',
+        path:'/',
+        hasproduct: products.length>0,
+        formCSS: true,
+        productCSS: true,
+        activeShop: true
+      })
+    };
+
+   Product.fetchAll(callBackFnBody)
+    
   }
 
   exports.getContactUs=(req, res, next) => {

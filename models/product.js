@@ -1,6 +1,22 @@
-const products=[];
-// const path=require('path')
-// const fs=require('fs');
+
+const path=require('path')
+const fs=require('fs');
+
+const pathBuild=path.join(
+    path.dirname(require.main.filename),
+    'data',
+    'products.json'
+)
+
+const getProductFromFile= (callBackFn)=>{
+
+    
+    fs.readFile(pathBuild, (err,data)=>{
+        if(err) return callBackFn([]);
+        callBackFn( JSON.parse(data))
+    })
+}
+
 module.exports = class Product{
 
     constructor(title){
@@ -8,11 +24,18 @@ module.exports = class Product{
     }
 
     save(){
-        
-        products.push(this); //{title : 'xxxx'}
+        getProductFromFile((products)=>{
+  
+            products.push(this)  // this is pointing to class instance
+
+            fs.writeFile(pathBuild, JSON.stringify(products),(err)=>{
+                console.log(err);
+            })
+        })
     }
 
-    static fetchAll(){
-        return products;
+    static fetchAll(callBackFn){
+       getProductFromFile(callBackFn);
+
     }
 }
