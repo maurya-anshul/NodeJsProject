@@ -38,3 +38,122 @@ main{
 .main-header_item a.active{
    color:#2f0380;
 }
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row;
+    align-content: center;
+}
+.card{
+    box-shadow: 0 2px 8px rgb(56, 97, 235);
+}
+.btn:active,
+.btn:hover{
+    background-color: rgb(167, 31, 144);
+    color: rgb(252, 251, 251);
+}
+.btn{
+    font: inherit;
+    border: 1px solid black;
+    color: blueviolet;
+    background-color: aliceblue;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1px 8px;
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .card-header,
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-header h1,
+  .card-content h1,
+  .card-content h2,
+  .card-content p {
+    margin: 0;
+  }
+  
+  .card-image {
+    width: 100%;
+  }
+  
+  .card-image img {
+    width: 100%;
+  }
+  
+  .card-actions {
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-actions button,
+  .card-actions a {
+    margin: 0 0.25rem;
+  }
+  .form-control {
+    margin: 1rem 0;
+  }
+  
+  .form-control label,
+  .form-control input,
+  .form-control textarea {
+    display: block;
+    width: 100%;
+  }
+  
+  .form-control input,
+  .form-control textarea {
+    border: 1px solid #0f0f0f;
+    font: inherit;
+    border-radius: 2px;
+  }
+  
+  .form-control input:focus,
+  .form-control textarea:focus {
+    border-color: rgba(48, 48, 48, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+      0 0 8px rgba(49, 49, 48, 0.6);
+    outline: 0 none;
+  }
+  .product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  .product-item {
+    width: 20rem;
+    max-width: 95%;
+    margin-bottom: 1em;
+    border-radius: 1em;
+  }
+  
+  .product-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+.product-price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+  }
+  .product-description {
+    text-align: center;
+  }
+  .align-center{
+    text-align:-webkit-center;
+  }

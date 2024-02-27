@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
 
-const productsController=require('../controllers/products')
+const contactController = require("../controllers/contactUs");
 const router = express.Router();
 
-router.get("/contactUs", productsController.getContactUs );
+router.get("/contactUs", contactController.getContactUs);
 
-router.post("/success",productsController.postSuccess);
+router.post("/success", contactController.postSuccess);
 module.exports = router;
