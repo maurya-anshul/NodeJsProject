@@ -9,24 +9,23 @@
       <div class="grid">
         <% for(let product of prods) {%>
         <article class="card-product-item">
+
             <header class="card-header">
                 <h1 class="product-title"> <%= product.title %> </h1>
             </header>
             <div class="card-image">
-                <img src="<%= product.imageUrl %>" alt="Laptop"/>
+                <img src="<%= product.imageUrl %>" alt="<%=product.title%>"/>
 
             </div>
             <div class="card-content">
-                <h2 class="product-price">$ <%= product.price %></h2>
+                <h2 class="product-price">$<%= product.price %></h2>
                 <p class="product-description">
                     <%= product.description %>
                 </p>
             </div>
             <div class="card-actions">
-                <form action = "/add-to-card">
-                    <button class="btn">Add to Cart</button>
-                </form>
-                <a class="btn" href="/products/<%= product.productId %>">Details</a>
+                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                <a class="button" href="/products/<%= product.productId %>">Details</a>
             </div>
         </article>
         <%}%>

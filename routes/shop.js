@@ -1,4 +1,4 @@
-const express = require("express");
+const express =require("express");
 const path = require("path");
 
 const shopController = require("../controllers/shop");
@@ -10,6 +10,8 @@ router.get("/products", shopController.getProduct);
 router.get("/products/:productId", shopController.getProductDetails);
 
 router.get("/cart", shopController.getMyCart);
+
+router.post('/cart', shopController.postMyCart);
 
 router.get("/checkout", shopController.getCheckout);
 

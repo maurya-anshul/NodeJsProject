@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const Cart = require("../models/cart");
 
 exports.getProduct = (req, res, next) => {
   const callBackFnBody = (products) => {
@@ -11,6 +12,21 @@ exports.getProduct = (req, res, next) => {
 
   Product.fetchAll(callBackFnBody);
 };
+
+exports.getProductDetails = (req, res, next) => {
+  const productId = req.params.productId;
+
+  console.log(typeof productId)
+  Product.findProductById(productId, (product)=>{
+    console.log('product is', product);
+    res.render('shop/product-details', {
+      pageTitle: "Product Details",
+      path: "/product-details",
+      product: product
+    })
+  });
+};
+
 
 exports.getShopIndex = (req, res, next) => {
   const callBackFnBody = (products) => {
@@ -31,6 +47,16 @@ exports.getMyCart = (req, res, next) => {
   });
 };
 
+exports.postMyCart = (req,res,next)=>{
+  const productId = req.body.productId;
+  // const price = req.body.price;
+  Product.findProductById(productId, products => {
+    console.log(productId, products)
+     Cart.addProduct(productId, products.price);
+  })
+  res.redirect('/cart')
+}
+
 exports.getCheckout = (req, res, next) => {
   res.render("shop/checkout", {
     pageTitle: "My Checkout",
@@ -45,15 +71,3 @@ exports.getMyOrders = (req, res, next) => {
   });
 };
 
-exports.getProductDetails = (req, res, next) => {
-  const productId = req.params.productId;
-  Product.findProductById(productId, (product)=>{
-    console.log('product is', product);
-    res.render('shop/product-details', {
-      pageTitle: "Product Details",
-      path: "/product-details",
-      product: product
-    })
-  });
- 
-};

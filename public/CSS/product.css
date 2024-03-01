@@ -11,6 +11,8 @@ main{
     height: 3.5rem;
     background-color: rgb(151, 136, 49);
     padding: 0 1.5rem;
+    box-shadow: rgba(68, 50, 50, 0.075) 0px 1px 2px 0px,
+    rgba(49, 49, 48, 0.6) 0px 1px 3px 1px
 
 }
 .main-header_nav{
@@ -37,6 +39,13 @@ main{
 .main-header_item a:active,
 .main-header_item a.active{
    color:#2f0380;
+   border-bottom: 1px solid #ccc;
+   padding: 3px;
+}
+
+.main-header_item a:hover{
+    color: #fff;
+    border: none;
 }
 .product-form{
     width: 20rem;
@@ -57,16 +66,18 @@ main{
     font:inherit;
     border-radius: 2px;
 }
-button{
-    font:inherit;
+button{ 
+    font: inherit;
+    border: 1px solid black;
+    color: blueviolet;
+    background-color: aliceblue;
     border-radius: 3px;
-    border:1px solid rgb(121, 21, 234);
-    background: white;
     cursor: pointer;
-    color: rgb(142, 28, 218);
+    text-decoration: none;
+
 }
 button:hover,
 button:active{
-    background-color: #2f0380;
-    color: white;
+    background-color: rgb(167, 31, 144);
+    color: rgb(252, 251, 251);
 }

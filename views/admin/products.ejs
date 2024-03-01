@@ -18,14 +18,14 @@
             </div>
             <div class="card-content">
                 <h2 class="product-price">$ <%= product.price %></h2>
-                <p class="product-description">
-                    <%= product.description %>
+                <p class="product-description"><%= product.description %>
                 </p>
             </div>
             <div class="card-actions">
-                <a class="btn" href="/admin/edit-product">EDIT</a>
+                <a class="button" href="/admin/edit-product/<%= product.productId %>?isEditing=true">Edit</a>
                 <form action="/admin/remove-product" method="POST">
-                    <button class="btn" type="submit" >REMOVE</button>
+                    <input type="hidden" value="<%=product.productId %>" name="productId">
+                    <button class="button" type="submit" >Remove</button>
                 </form>
             </div>
         </article>
@@ -36,3 +36,5 @@
       <%}%>
     </main>
     <%- include('../includes/end.ejs') %>
+
+    
